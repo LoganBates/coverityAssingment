@@ -1,7 +1,5 @@
 package calculator;
 
-import calculator.ArithNode.Operator;
-
 public class TermNode extends Node {
 	private String m_value;
 	
@@ -11,8 +9,5 @@ public class TermNode extends Node {
 	}
 
 	@Override
-	public int getValue() {
-		return Integer.parseInt(m_value);
-	}
-
+	public int getValue() { return Integer.parseInt(m_value); }
 }

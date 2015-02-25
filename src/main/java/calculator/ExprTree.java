@@ -3,18 +3,17 @@ import java.util.ArrayList;
 import calculator.ArithNode.Operator;
 
 public class ExprTree {
-    private static Node root;
-
+    private static Node m_root;
     public static void main(String args[]) {
         ExprTree tree = new ExprTree(args[0]);
         System.out.println(tree.getRoot().getValue());
     }
 
     public ExprTree(String inExpr) {
-        root = buildTree(inExpr);
+        m_root = buildTree(inExpr);
     }
 
-    public Node getRoot() { return root; }
+    public Node getRoot() { return m_root; }
 
     /***
      * This function-given a calculator string input-will return an ArrayList of
@@ -39,7 +38,6 @@ public class ExprTree {
     public static int getSplitTupleIndex(String tuple) {
         int state = 0;
         int tupleSplitIndex = 0;
-        //ignore first and last parenthesis
         for (int i = 1; i < tuple.length()-1; i++) {
             if (tuple.toCharArray()[i] == '(') {
                 state++;
@@ -98,7 +96,7 @@ public class ExprTree {
                 case "subt":
                     return new ArithNode(buildTree(getLeftNode(innerArgs)), buildTree(getRightNode(innerArgs)), Operator.SUBT);
                 case "let":
-                    return new LetNode(inExpr);
+                    return buildTree(LetNode.resolveLet(innerArgs));
                 default:
                         System.out.println("Invalid Node Type: " + inExpr);
             }
