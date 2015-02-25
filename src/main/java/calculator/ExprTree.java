@@ -3,25 +3,18 @@ import java.util.ArrayList;
 import calculator.ArithNode.Operator;
 
 public class ExprTree {
-
-    private static Node treeRootPointer;
     private static Node root;
 
     public static void main(String args[]) {
-
+        ExprTree tree = new ExprTree(args[0]);
+        System.out.println(tree.getRoot().getValue());
     }
 
     public ExprTree(String inExpr) {
-        // Call build tree
+        root = buildTree(inExpr);
     }
 
-    public Node getRoot() {
-        return root;
-    }
-
-    public Node getTreeTop() {
-        return treeRootPointer;
-    }
+    public Node getRoot() { return root; }
 
     /***
      * This function-given a calculator string input-will return an ArrayList of
@@ -36,10 +29,10 @@ public class ExprTree {
      * 		   within he parenthesis.
      */
     public static ArrayList<String> parseString(String input) {
-        ArrayList<String> output = new ArrayList<String>();
+        ArrayList<String> output = new ArrayList<>();
         int x = input.indexOf("(");
         output.add(input.substring(0, x));
-        output.add(input.substring(x, input.length()-1));
+        output.add(input.substring(x, input.length()));
         return output;
     }
 
@@ -70,7 +63,7 @@ public class ExprTree {
     public static String getRightNode(String input) {
         String returnString;
         int splitIndex = getSplitTupleIndex(input);
-        returnString = (input.substring(splitIndex+1));
+        returnString = (input.substring(splitIndex+1, input.length()-1));
         return returnString;
     }
 
@@ -88,29 +81,28 @@ public class ExprTree {
         return true;
     }
 
-    public Node BuildTree(String inExpr) {
-        String nodeType = parseString(inExpr).get(0);
-        String innerArgs = parseString(inExpr).get(1);
-        switch(nodeType) {
-            case "Mult":
-                return new ArithNode(BuildTree(getLeftNode(innerArgs)), BuildTree(getRightNode(innerArgs)), Operator.MULT);
-            case "Div":
-                return new ArithNode(BuildTree(getLeftNode(innerArgs)), BuildTree(getRightNode(innerArgs)), Operator.DIV);
-            case "Add":
-                return new ArithNode(BuildTree(getLeftNode(innerArgs)), BuildTree(getRightNode(innerArgs)), Operator.ADD);
-            case "Subt":
-                return new ArithNode(BuildTree(getLeftNode(innerArgs)), BuildTree(getRightNode(innerArgs)), Operator.SUBT);
-            case "Let":
-                return new LetNode(inExpr);
-            default:
-                if (isNumber(nodeType)) {
-                    return new TermNode(inExpr);
-                } else {
-                    System.out.println("Invalid Node Type: " + inExpr);
-                }
-
+    public Node buildTree(String inExpr) {
+        inExpr = inExpr.replaceAll("\\s+","").toLowerCase();
+        if (isNumber(inExpr)) {
+            return new TermNode(inExpr);
+        } else {
+            String nodeType = parseString(inExpr).get(0);
+            String innerArgs = parseString(inExpr).get(1);
+            switch (nodeType) {
+                case "mult":
+                    return new ArithNode(buildTree(getLeftNode(innerArgs)), buildTree(getRightNode(innerArgs)), Operator.MULT);
+                case "div":
+                    return new ArithNode(buildTree(getLeftNode(innerArgs)), buildTree(getRightNode(innerArgs)), Operator.DIV);
+                case "add":
+                    return new ArithNode(buildTree(getLeftNode(innerArgs)), buildTree(getRightNode(innerArgs)), Operator.ADD);
+                case "subt":
+                    return new ArithNode(buildTree(getLeftNode(innerArgs)), buildTree(getRightNode(innerArgs)), Operator.SUBT);
+                case "let":
+                    return new LetNode(inExpr);
+                default:
+                        System.out.println("Invalid Node Type: " + inExpr);
+            }
+            return null;
         }
-
-        return null;
     }
 }
