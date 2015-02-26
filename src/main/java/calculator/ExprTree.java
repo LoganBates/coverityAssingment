@@ -1,18 +1,38 @@
 package calculator;
-import java.util.ArrayList;
+
 import calculator.ArithNode.Operator;
 
+import java.util.ArrayList;
+
+/**
+ * The ExprTree class holds methods that are used to build an expression tree. The main function is called here. A tree
+ * is built with the buildTree(String input) function.
+ */
 public class ExprTree {
     private static Node m_root;
+
+    /**
+     * Builds a new tree by passing the arguments into the constructor. The output sum is printed to the console.
+     * @param args The input string to be analyzed by the calculator.
+     */
     public static void main(String args[]) {
         ExprTree tree = new ExprTree(args[0]);
         System.out.println(tree.getRoot().getValue());
     }
 
+    /**
+     * Generates a tree by taking in the input string and passing it into the build tree function. The root node of the
+     * tree is stored in the tree's root variable.
+     * @param inExpr String to be analyzed by the calculator.
+     */
     public ExprTree(String inExpr) {
         m_root = buildTree(inExpr);
     }
 
+    /**
+     * Getter for the expression tree's root node.
+     * @return The root of the tree.
+     */
     public Node getRoot() { return m_root; }
 
     /***
@@ -35,6 +55,13 @@ public class ExprTree {
         return output;
     }
 
+    /**
+     * The function takes in a tuple and returns the position of where the two values can be separated. This is a helper
+     * function in order for getLeftNode(String input) or getRightNode(String input) to know where to parse a tuple in
+     * order to extract left and ride nodes.
+     * @param tuple A tuple of variables (as a string)
+     * @return The numerical position of where the tuple should be split.
+     */
     public static int getSplitTupleIndex(String tuple) {
         int state = 0;
         int tupleSplitIndex = 0;
@@ -51,6 +78,11 @@ public class ExprTree {
         return tupleSplitIndex;
     }
 
+    /**
+     * Given a string tuple, this function will return the left value from the tuple.
+     * @param input An input to be parsed into a left and ride node.
+     * @return A string to be stored at the left node of the caller parent node.
+     */
     public static String getLeftNode(String input) {
         String returnString;
         int splitIndex = getSplitTupleIndex(input);
@@ -58,6 +90,11 @@ public class ExprTree {
         return returnString;
     }
 
+    /**
+     * Given a string tuple, this function will return the right value from the tuple.
+     * @param input An input to be parsed into a left and ride node.
+     * @return A string to be stored at the left node of the caller parent node.
+     */
     public static String getRightNode(String input) {
         String returnString;
         int splitIndex = getSplitTupleIndex(input);
@@ -66,8 +103,8 @@ public class ExprTree {
     }
 
     /**
-     * Checks if the inputed string can be converted into a valid integer.
-     * @param input - A string that may contain only numerics/alphabets or a combination of the two.
+     * Checks if the input string can be converted into a valid integer.
+     * @param input - A string to be checked it it represents a number.
      * @return - True if can be converted into valid int. False if not.
      */
     public static boolean isNumber(String input) {
@@ -79,6 +116,13 @@ public class ExprTree {
         return true;
     }
 
+    /**
+     * A function that returns the root node of tree that is built using the input string expression. The function
+     * recurses until it reaches a terminal node, which is checked with the isNumber(String expr) function. An enum is
+     * passed to each node in order to distinguish its behavior.
+     * @param inExpr A string to be analyzed by the calculator.
+     * @return The root node of the tree that is built from the function.
+     */
     public Node buildTree(String inExpr) {
         inExpr = inExpr.replaceAll("\\s+","").toLowerCase();
         if (isNumber(inExpr)) {
