@@ -28,12 +28,18 @@ public class ExprTree {
             e.printStackTrace();
             throw new RuntimeException("Problems with creating the log files");
         }
-
-        setLoggerLevel(args[1]);
-        LOGGER.info("Query: " + args[0]);
-        ExprTree tree = new ExprTree(args[0]);
-        System.out.println(tree.getRoot().getValue());
-        LOGGER.info("Successful run with result: " + tree.getRoot().getValue());
+        if (args.length == 2) {
+            setLoggerLevel(args[1]);
+        } else if (args.length == 1){
+            setLoggerLevel("");
+            LOGGER.info("Query: " + args[0]);
+            ExprTree tree = new ExprTree(args[0]);
+            System.out.println(tree.getRoot().getValue());
+            LOGGER.info("Successful run with result: " + tree.getRoot().getValue());
+        } else {
+            LOGGER.severe("There are too many arguments");
+            System.exit(1);
+        }
     }
 
     private static void setLoggerLevel(String flag) {
@@ -43,7 +49,7 @@ public class ExprTree {
         else if (flag.equals("-all")) LOGGER.setLevel(Level.ALL);
         else {
             LOGGER.setLevel(Level.OFF);
-            System.out.println("Invalid Logging level, defaulting to OFF");
+            LOGGER.info("No logger flag/ improper flag detected. Defaulting to OFF");
         }
 
     }
