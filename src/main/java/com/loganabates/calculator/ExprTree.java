@@ -83,7 +83,7 @@ public class ExprTree {
      */
     public static ArrayList<String> parseString(String input) {
         LOGGER.config("Calling parseString function.");
-        ArrayList<String> output = new ArrayList<>();
+        ArrayList<String> output = new ArrayList<String>();
         int x = input.indexOf("(");
         output.add(input.substring(0, x));
         output.add(input.substring(x, input.length()));
@@ -179,29 +179,26 @@ public class ExprTree {
             LOGGER.config("Node Type passed in: " + nodeType);
             String innerArgs = parseString(inExpr).get(1);
             LOGGER.config("Arguments for node type: " + innerArgs);
-            switch (nodeType) {
-                case "mult":
-                    LOGGER.config("Reached mult node for: " + inExpr + ". Recursing down left and right nodes.");
-                    return new ArithNode(buildTree(getLeftNode(innerArgs)), buildTree(getRightNode(innerArgs)), Operator.MULT);
-                case "div":
-                    LOGGER.config("Reached div node for: " + inExpr + ". Recursing down left and right nodes.");
-                    return new ArithNode(buildTree(getLeftNode(innerArgs)), buildTree(getRightNode(innerArgs)), Operator.DIV);
-                case "add":
-                    LOGGER.config("Reached add node for: " + inExpr + ". Recursing down left and right nodes.");
-                    return new ArithNode(buildTree(getLeftNode(innerArgs)), buildTree(getRightNode(innerArgs)), Operator.ADD);
-                case "subt":
-                    LOGGER.config("Reached subt node for: " + inExpr + ". Recursing down left and right nodes.");
-                    return new ArithNode(buildTree(getLeftNode(innerArgs)), buildTree(getRightNode(innerArgs)), Operator.SUBT);
-                case "let":
-                    LOGGER.config("Reached let node for: " + inExpr + ". Resolving let node in resolveLet function, passing in: " + innerArgs);
-                    LOGGER.config("Calling getRightNode function.");
-                    return buildTree(LetNode.resolveLet(innerArgs));
-                default:
-                    LOGGER.severe("Invalid Node Type with input: " + inExpr);
+            if (nodeType.equals("mult")) {
+                LOGGER.config("Reached mult node for: " + inExpr + ". Recursing down left and right nodes.");
+                return new ArithNode(buildTree(getLeftNode(innerArgs)), buildTree(getRightNode(innerArgs)), Operator.MULT);
+            } else if (nodeType.equals("div")) {
+                LOGGER.config("Reached div node for: " + inExpr + ". Recursing down left and right nodes.");
+                return new ArithNode(buildTree(getLeftNode(innerArgs)), buildTree(getRightNode(innerArgs)), Operator.DIV);
+            } else if (nodeType.equals("add")) {
+                LOGGER.config("Reached add node for: " + inExpr + ". Recursing down left and right nodes.");
+                return new ArithNode(buildTree(getLeftNode(innerArgs)), buildTree(getRightNode(innerArgs)), Operator.ADD);
+            } else if (nodeType.equals("subt")) {
+                LOGGER.config("Reached subt node for: " + inExpr + ". Recursing down left and right nodes.");
+                return new ArithNode(buildTree(getLeftNode(innerArgs)), buildTree(getRightNode(innerArgs)), Operator.SUBT);
+            } else if (nodeType.equals("let")) {
+                LOGGER.config("Reached let node for: " + inExpr + ". Resolving let node in resolveLet function, passing in: " + innerArgs);
+                LOGGER.config("Calling getRightNode function.");
+                return buildTree(LetNode.resolveLet(innerArgs));
+            } else {
+                LOGGER.severe("Invalid Node Type with input: " + inExpr);
             }
-            return null;
         }
+            return null;
     }
-
-
 }

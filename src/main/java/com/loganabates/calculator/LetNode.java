@@ -66,7 +66,7 @@ public class LetNode extends Node {
      */
     public static String replaceStr(String input, String target, String replacement) {
         String delims = "(),";
-        ArrayList<String> stringArray = new ArrayList<>();
+        ArrayList<String> stringArray = new ArrayList<String>();
         StringBuilder sb = new StringBuilder();
         StringTokenizer st = new StringTokenizer(input, delims, true);
 
