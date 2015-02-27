@@ -1,0 +1,36 @@
+To build the project, use standard maven build commands or your favorite IDE. 
+This code was written with the latest version of Intellij.
+Typically this can be done by running "mvn package" in the root directory.
+
+Run the program by pointing the newly created .jar file at the classpath and then pass in arguments.
+Example:
+java -cp calculator-1.0-SNAPSHOT-jar-with-dependencies.jar com.loganabates.calculator.ExprTree "add(2,2)" "-flag"
+
+The available log flags are:
+-debug (Logs as CONFIG)
+-info
+-error (Logs as SEVERE)
+-All (Prints all logs)
+
+I encountered several issues while completing this project. I had little prior experience with MAVEN 
+so I had to spend some time learning about it. The majority of my time was spent trying to understand 
+how to get the build exactly right, and I believe there still might be some issues, but I wanted to 
+timebox as stated in the assignment. 
+I also spent some time refactoring my code to make it more object oriented and easily expandable by putting
+the node objects into different categories. I feel like this is just part of the normal coding process though.
+
+I made some assumptions about the code in order to get everything completed in a small amount of time:
+- Only valid expressions would be passed in
+- The code would be run on a newer version of java
+
+The code HAS NOT been thoroughly tested, but I chose to opt out because of the timeboxing. I realize this is ironic 
+considering what Coverity produces. Given more time I would add more exhaustive testing and analysis of failure cases.
+The logging is also not exhaustive, and I would have improved on that given more time.
+
+I'm most proud of the parsing, which took some tricky string manipulation, and led to a nice data structure that allows
+for recursive calls to get a single integer value from the tree.
+
+I enjoyed the assignment, it was fun, given more time I feel like I could've produced something cleaner and more reliable,
+but I hope that you'll consider my coding process more than the tools that I'm rusty/unfamiliar with. 
+
+If there are any questions/concerns please write me an email at logan.bates@gmail.com
