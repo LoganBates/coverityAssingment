@@ -8,10 +8,6 @@
   <component name="ChangeListManager">
     <list default="true" id="1ab4ba9c-0cd8-43b4-b78a-344977533fc6" name="Default" comment="Coding touch ups">
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/test/java/com/loganabates/calculator/ExprTreeTest.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/loganabates/calculator/ExprTree.java" afterPath="$PROJECT_DIR$/src/main/java/com/loganabates/calculator/ExprTree.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/loganabates/calculator/LetNode.java" afterPath="$PROJECT_DIR$/src/main/java/com/loganabates/calculator/LetNode.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/coverityAssingment.iml" afterPath="$PROJECT_DIR$/coverityAssingment.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="coverityCalculator.iws" />
@@ -277,6 +273,7 @@
       <recent name="com.loganabates.calculator" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/test/java/com/loganabates/calculator" />
       <recent name="$PROJECT_DIR$/src/main/java/calculator" />
     </key>
@@ -602,7 +599,7 @@
       <created>1424893332646</created>
       <option name="number" value="Default" />
       <updated>1424893332646</updated>
-      <workItem from="1424893334242" duration="43102000" />
+      <workItem from="1424893334242" duration="43185000" />
     </task>
     <task id="LOCAL-00001" summary="Working for non-let cases. Hasn't been exhaustively tested though">
       <created>1424896211542</created>
@@ -634,15 +631,21 @@
       <option name="project" value="LOCAL" />
       <updated>1425005042317</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Coding touch ups">
+      <created>1425008558321</created>
+      <option name="number" value="00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1425008558321</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="43102000" />
+    <option name="totallyTimeSpent" value="43185000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="28" y="23" width="1279" height="752" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -665,7 +668,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.09460516" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31587178" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31587178" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13469985" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
