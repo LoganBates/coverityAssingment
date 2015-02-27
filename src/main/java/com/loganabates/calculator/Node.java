@@ -1,4 +1,4 @@
-package calculator;
+package com.loganabates.calculator;
 
 /**
  * An abstract node class which is extended by different node classes.

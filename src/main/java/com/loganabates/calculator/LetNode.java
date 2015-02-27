@@ -1,4 +1,4 @@
-package calculator;
+package com.loganabates.calculator;
 
 import java.util.ArrayList;
 import java.util.StringTokenizer;

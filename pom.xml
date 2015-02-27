@@ -8,5 +8,7 @@
     <artifactId>calculator</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <name>Coverity Calculator</name>
+    <url>https://github.com/LoganBates/coverityAssingment</url>
 
 </project>

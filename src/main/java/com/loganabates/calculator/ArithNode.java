@@ -1,4 +1,4 @@
-package calculator;
+package com.loganabates.calculator;
 
 /**
  * ArithNode class that extends superclass Node. Constructs nodes that have arithmetic properties. (Multiply, Divide, Add,

@@ -1,4 +1,4 @@
-package calculator;
+package com.loganabates.calculator;
 
 /**
  * A node subclass that represents a node that contains a terminal expression (i.e. a numerical value) and cannot be
