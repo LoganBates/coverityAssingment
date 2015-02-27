@@ -14,7 +14,6 @@ public class CalcLogger {
 
     static private FileHandler fileTxt;
     static private SimpleFormatter formatterTxt;
-
     static public void setup() throws IOException {
 
         // get the global logger to configure it
